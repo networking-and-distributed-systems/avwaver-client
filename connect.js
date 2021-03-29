@@ -4,7 +4,7 @@ const socketio=require('socket.io-client');
 const { createSignature } = require("./enc");
 async function connectSequence({publicKey,privateKey,passphrase})
 {
-    var io=socketio('http://localhost:8080/',{
+    var io=socketio(process.env.URL,{
         auth:{
             username:'yniks'
         }
