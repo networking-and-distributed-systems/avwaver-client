@@ -1,4 +1,4 @@
-const { loginSequence, registerSequence } = require("./register");
+const { loginSequence, registerSequence } = require("./session");
 
 const socketio=require('socket.io-client');
 const { createSignature } = require("./enc");
@@ -17,6 +17,6 @@ async function connectSequence({publicKey,privateKey,passphrase})
             res()
         })
     })
-    return io
+    return {io,privateKey,publicKey}
 }
 module.exports={connectSequence}
